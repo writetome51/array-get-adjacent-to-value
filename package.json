@@ -1,0 +1,24 @@
+{
+  "name": "@writetome51/array-get-adjacent-to-value",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "array",
+    "manipulation"
+  ],
+  "author": "Steve Thompson",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "basic-data-handling": "latest",
+    "@writetome51/array-get-adjacent-at": "latest",
+    "@writetome51/adjacent-to-value-info-interface": "latest",
+    "@writetome51/array-get-indexes-basic": "latest",
+    "@writetome51/array-and-index-validation": "latest",
+    "@writetome51/array-non-modifying-getters-basic": "latest"
+  }
+}
