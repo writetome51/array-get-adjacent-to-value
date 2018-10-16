@@ -1,8 +1,9 @@
-import { getAdjacentToValue } from '../../getAdjacentToValue';
+import { getAdjacentToValue} from './getAdjacentToValue';
 import { isArray } from 'basic-data-handling/isArray_notArray';
 
 
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 
 // Test 1: if offset is 0, first item in returned array must be value.
 let result = getAdjacentToValue({value: 1, offset: 0, howMany: 3}, arr);
