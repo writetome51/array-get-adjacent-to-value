@@ -1,7 +1,7 @@
 import { errorIfNotInteger } from 'basic-data-handling/errorIfNotInteger';
-import { getAdjacentAt } from '@writetome51/array-get-adjacent-at/getAdjacentAt';
+import { getAdjacentAt } from '@writetome51/array-get-adjacent-at';
 import { IAdjacentToValueInfo } from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
-import { getFirstIndexOf } from '@writetome51/array-get-indexes-basic/getFirstIndexOf';
+import { getFirstIndexOf } from '@writetome51/array-get-indexes-basic';
 import { errorIfIndexNotValidAfterOffsetWasAdded } 
 	from '@writetome51/array-and-index-validation/errorIf/errorIfIndexNotValidAfterOffsetWasAdded';
 import { ifIndexNotNegative_getActionResult }
