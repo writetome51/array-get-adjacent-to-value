@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var errorIfNotInteger_1 = require("basic-data-handling/errorIfNotInteger");
 var array_get_adjacent_at_1 = require("@writetome51/array-get-adjacent-at");
-var array_get_indexes_basic_1 = require("@writetome51/array-get-indexes-basic");
+var array_get_indexes_1 = require("@writetome51/array-get-indexes");
 var errorIfIndexNotValidAfterOffsetWasAdded_1 = require("@writetome51/array-and-index-validation/errorIf/errorIfIndexNotValidAfterOffsetWasAdded");
 var ifIndexNotNegative_getActionResult_1 = require("@writetome51/array-and-index-validation/ifIndexNotNegative_getActionResult");
 // Returns array of adjacent items from passed array, starting with, or close to,
@@ -19,7 +19,7 @@ function getAdjacentToValue(info, array) {
     var offsetAndHowMany = [info.offset, info.howMany], i = -1;
     while (++i < offsetAndHowMany.length)
         errorIfNotInteger_1.errorIfNotInteger(offsetAndHowMany[i]);
-    var index = array_get_indexes_basic_1.getFirstIndexOf(info.value, array);
+    var index = array_get_indexes_1.getFirstIndexOf(info.value, array);
     return ifIndexNotNegative_getActionResult_1.ifIndexNotNegative_getActionResult(index, function () {
         index += info.offset;
         errorIfIndexNotValidAfterOffsetWasAdded_1.errorIfIndexNotValidAfterOffsetWasAdded(index, array);

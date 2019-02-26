@@ -1,34 +1,40 @@
-# getAdjacentToValue(info,  array): any[]
+## getAdjacentToValue(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value: anyExceptObject,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;offset: integer,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;howMany: integer_greater_than_zero<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array<br>): any[]
 
-Returns adjacent items from `array`, starting at, or close to, a value specified  
-in `info`.  Does not modify `array`.  
-`info` is an object that looks like this:  
-```
-{
-   value: any except object (it's the value being searched for), 
-   offset: integer, specifying where, in relation to value, to begin selecting adjacent 
-        items to return. I.E.: If 0, it begins at value. If -1, it begins 1 place to 
-        the left of value. If 1, it begins 1 place to right of value.  Can be any integer.
-   howMany: integer greater than zero (it's how many adjacent items to return)
-}
-```
+Returns `howMany` adjacent items from `array`, starting with, or close to, `value`.  
+Exactly where the selection starts is decided by `offset`, which is the position,  
+relative to `value`, where to begin the selection. For example, if `offset` is 0,  
+then the selection begins at `value`. If -1, it begins one place to the left of  
+`value`. If 1, it begins one place to the right.
 
-Examples of usage:
+`array` is not modified.
+
+Note: the function only works with the first found instance of `value`.
+
+
+### Examples
 ```
 let array = [1,3,5,7,9,11,13,15,17];
 
-let result = getAdjacentToValue({value: 7, offset: 0, howMany: 3},  array);
-// result will be [7, 9, 11]
+getAdjacentToValue({value: 7, offset: 0, howMany: 3},  array);
+    // --> [7, 9, 11]
 
-let result = getAdjacentToValue({value: 7, offset: 2, howMany: 3},  array);
-// result will be [11, 13, 15]
+getAdjacentToValue({value: 7, offset: 2, howMany: 3},  array);
+    // --> [11, 13, 15]
 
-let result = getAdjacentToValue({value: 7, offset: -2, howMany: 2},  array);
-// result will be [3, 5]
 
-let result = getAdjacentToValue({value: 11, offset: -1, howMany: 2},  array);
-// result will be [9, 11]
+array = [1, 3, ['hello','goodbye'], 15, 17];
 
-let result = getAdjacentToValue({value: 5, offset: 0, howMany: 4},  array);
-// result will be [5, 7, 9, 11]
+getAdjacentToValue(
+    {value: ['hello','goodbye'], offset: -1, howMany: 2},  
+    array
+);
+    // --> [ 3, ['hello','goodbye'] ]
+```
+
+### Installation
+`npm i @writetome51/array-get-adjacent-to-value`
+
+### Loading
+```
+
 ```

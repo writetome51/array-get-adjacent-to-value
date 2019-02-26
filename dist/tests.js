@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var getAdjacentToValue_1 = require("./getAdjacentToValue");
+var index_1 = require("./index");
 var isArray_notArray_1 = require("basic-data-handling/isArray_notArray");
 var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // Test 1: if offset is 0, first item in returned array must be value.
-var result = getAdjacentToValue_1.getAdjacentToValue({ value: 1, offset: 0, howMany: 3 }, arr);
+var result = index_1.getAdjacentToValue({ value: 1, offset: 0, howMany: 3 }, arr);
 if (isArray_notArray_1.isArray(result) && result[0] === 1 &&
     result.length === 3)
     console.log('test 1 passed');
@@ -12,7 +12,7 @@ else
     console.log('test 1 failed');
 // Test 2: if offset is 3, first item in returned array must be 3 places to right of
 // value.
-result = getAdjacentToValue_1.getAdjacentToValue({ value: 1, offset: 3, howMany: 3 }, arr);
+result = index_1.getAdjacentToValue({ value: 1, offset: 3, howMany: 3 }, arr);
 if (isArray_notArray_1.isArray(result) && result[0] === 4 &&
     result.length === 3)
     console.log('test 2 passed');
@@ -20,7 +20,7 @@ else
     console.log('test 2 failed');
 // Test 3: if offset is -3, first item in returned array must be 3 places to
 // left of value.
-result = getAdjacentToValue_1.getAdjacentToValue({ value: 6, offset: -3, howMany: 5 }, arr);
+result = index_1.getAdjacentToValue({ value: 6, offset: -3, howMany: 5 }, arr);
 if (isArray_notArray_1.isArray(result) && result[0] === 3 && result[4] === 7 &&
     result.length === 5)
     console.log('test 3 passed');
@@ -29,7 +29,7 @@ else
 // Test 4: if negative offset asks for an out-of-range index, error is triggered:
 var errorTriggered = false;
 try {
-    result = getAdjacentToValue_1.getAdjacentToValue({ value: 3, offset: -3, howMany: 5 }, arr);
+    result = index_1.getAdjacentToValue({ value: 3, offset: -3, howMany: 5 }, arr);
 }
 catch (e) {
     errorTriggered = true;
@@ -41,7 +41,7 @@ else
 // Test 5: if positive offset asks for an out-of-range index, error is triggered:
 errorTriggered = false;
 try {
-    result = getAdjacentToValue_1.getAdjacentToValue({ value: 6, offset: 5, howMany: 1 }, arr);
+    result = index_1.getAdjacentToValue({ value: 6, offset: 5, howMany: 1 }, arr);
 }
 catch (e) {
     errorTriggered = true;
@@ -53,7 +53,7 @@ else
 // Test 6: if howMany goes beyond the array's length, error is triggered:
 errorTriggered = false;
 try {
-    result = getAdjacentToValue_1.getAdjacentToValue({ value: 6, offset: 0, howMany: 6 }, arr);
+    result = index_1.getAdjacentToValue({ value: 6, offset: 0, howMany: 6 }, arr);
 }
 catch (e) {
     errorTriggered = true;
@@ -65,7 +65,7 @@ else
 // Test 7: if value is not found in array, error is triggered:
 errorTriggered = false;
 try {
-    result = getAdjacentToValue_1.getAdjacentToValue({ value: 0, offset: 0, howMany: 1 }, arr);
+    result = index_1.getAdjacentToValue({ value: 0, offset: 0, howMany: 1 }, arr);
 }
 catch (e) {
     errorTriggered = true;
@@ -77,7 +77,7 @@ else
 // Test 8: value is allowed to be an array.  If error is NOT triggered, it passes:
 errorTriggered = false;
 try {
-    result = getAdjacentToValue_1.getAdjacentToValue({ value: [], offset: 0, howMany: 1 }, [1, 2, 3, [], 4]);
+    result = index_1.getAdjacentToValue({ value: [], offset: 0, howMany: 1 }, [1, 2, 3, [], 4]);
 }
 catch (e) {
     errorTriggered = true;

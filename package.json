@@ -2,9 +2,10 @@
   "name": "@writetome51/array-get-adjacent-to-value",
   "version": "1.0.2",
   "description": "Returns array of adjacent items from passed array, starting with, or close to, the passed value",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "keywords": [
     "array",
@@ -14,10 +15,10 @@
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
-    "basic-data-handling": "~1.0.13",
-    "@writetome51/array-get-adjacent-at": "~1.0.2",
+    "basic-data-handling": "~1.0.15",
+    "@writetome51/array-get-adjacent-at": "~1.0.3",
     "@writetome51/adjacent-to-value-info-interface": "~1.0.2",
-    "@writetome51/array-get-indexes-basic": "~1.0.7",
-    "@writetome51/array-and-index-validation": "~1.0.3"
+    "@writetome51/array-get-indexes": "~1.0.0",
+    "@writetome51/array-and-index-validation": "~1.0.6"
   }
 }

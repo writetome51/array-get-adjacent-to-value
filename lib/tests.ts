@@ -1,4 +1,4 @@
-import { getAdjacentToValue} from './getAdjacentToValue';
+import { getAdjacentToValue} from './index';
 import { isArray } from 'basic-data-handling/isArray_notArray';
 
 
