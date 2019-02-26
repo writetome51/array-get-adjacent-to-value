@@ -1,6 +1,6 @@
 {
   "name": "@writetome51/array-get-adjacent-to-value",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Returns array of adjacent items from passed array, starting with, or close to, the passed value",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,6 +13,7 @@
   ],
   "author": "Steve Thompson",
   "license": "MIT",
+  "homepage": "https://github.com/writetome51/array-get-adjacent-to-value#readme",
   "devDependencies": {},
   "dependencies": {
     "basic-data-handling": "~1.0.15",

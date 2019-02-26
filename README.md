@@ -36,5 +36,9 @@ getAdjacentToValue(
 
 ### Loading
 ```
-
+// if using Typescript:
+import {getAdjacentToValue} from '@writetome51/array-get-adjacent-to-value';
+// if using ES5 Javascript:
+var getAdjacentToValue = 
+    require('@writetome51/array-get-adjacent-to-value').getAdjacentToValue;
 ```
