@@ -16,10 +16,11 @@
   "homepage": "https://github.com/writetome51/array-get-adjacent-to-value#readme",
   "devDependencies": {},
   "dependencies": {
-    "basic-data-handling": "~1.0.15",
-    "@writetome51/array-get-adjacent-at": "~1.0.3",
     "@writetome51/adjacent-to-value-info-interface": "~1.0.2",
-    "@writetome51/array-get-indexes": "~1.0.0",
-    "@writetome51/array-and-index-validation": "~1.0.6"
+    "@writetome51/array-get-adjacent-at": "~1.0.4",
+    "@writetome51/array-get-indexes": "~1.0.1",
+    "basic-data-handling": "~1.0.15",
+    "error-if-index-is-negative": "~1.0.0",
+    "error-if-index-not-valid-after-offset-was-added": "~1.0.0"
   }
 }

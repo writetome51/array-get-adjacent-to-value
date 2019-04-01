@@ -1,16 +1,14 @@
 import { errorIfNotInteger } from 'basic-data-handling/errorIfNotInteger';
+import { errorIfIndexIsNegative } from 'error-if-index-is-negative';
+import { errorIfIndexNotValidAfterOffsetWasAdded }
+	from 'error-if-index-not-valid-after-offset-was-added';
 import { getAdjacentAt } from '@writetome51/array-get-adjacent-at';
-import { IAdjacentToValueInfo } from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
 import { getFirstIndexOf } from '@writetome51/array-get-indexes';
-import { errorIfIndexNotValidAfterOffsetWasAdded } 
-	from '@writetome51/array-and-index-validation/errorIf/errorIfIndexNotValidAfterOffsetWasAdded';
-import { ifIndexNotNegative_getActionResult }
-	from '@writetome51/array-and-index-validation/ifIndexNotNegative_getActionResult';
+import { IAdjacentToValueInfo } from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
 
 
 // Returns array of adjacent items from passed array, starting with, or close to,
 // the passed value.
-// Check interface IAdjacentToValueInfo for more info on how to use this.
 //
 // Example of usage:
 //
@@ -20,13 +18,13 @@ import { ifIndexNotNegative_getActionResult }
 // If offset was 2, for example, result would be [11, 13, 15]
 
 export function getAdjacentToValue(info: IAdjacentToValueInfo, array): any[] {
-	let offsetAndHowMany = [info.offset, info.howMany], i = -1;
-	while (++i < offsetAndHowMany.length) errorIfNotInteger(offsetAndHowMany[i]);
+	errorIfNotInteger(info.offset);
+	errorIfNotInteger(info.howMany);
 
 	let index = getFirstIndexOf(info.value, array);
-	return ifIndexNotNegative_getActionResult(index, () => {
-		index += info.offset;
-		errorIfIndexNotValidAfterOffsetWasAdded(index, array);
-		return getAdjacentAt(index, info.howMany, array);
-	});
+	errorIfIndexIsNegative(index);
+	index += info.offset;
+	errorIfIndexNotValidAfterOffsetWasAdded(index, array.length);
+
+	return getAdjacentAt(index, info.howMany, array);
 }

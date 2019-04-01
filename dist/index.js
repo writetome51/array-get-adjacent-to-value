@@ -1,13 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var errorIfNotInteger_1 = require("basic-data-handling/errorIfNotInteger");
+var error_if_index_is_negative_1 = require("error-if-index-is-negative");
+var error_if_index_not_valid_after_offset_was_added_1 = require("error-if-index-not-valid-after-offset-was-added");
 var array_get_adjacent_at_1 = require("@writetome51/array-get-adjacent-at");
 var array_get_indexes_1 = require("@writetome51/array-get-indexes");
-var errorIfIndexNotValidAfterOffsetWasAdded_1 = require("@writetome51/array-and-index-validation/errorIf/errorIfIndexNotValidAfterOffsetWasAdded");
-var ifIndexNotNegative_getActionResult_1 = require("@writetome51/array-and-index-validation/ifIndexNotNegative_getActionResult");
 // Returns array of adjacent items from passed array, starting with, or close to,
 // the passed value.
-// Check interface IAdjacentToValueInfo for more info on how to use this.
 //
 // Example of usage:
 //
@@ -16,14 +15,12 @@ var ifIndexNotNegative_getActionResult_1 = require("@writetome51/array-and-index
 // result will be [7, 9, 11] .
 // If offset was 2, for example, result would be [11, 13, 15]
 function getAdjacentToValue(info, array) {
-    var offsetAndHowMany = [info.offset, info.howMany], i = -1;
-    while (++i < offsetAndHowMany.length)
-        errorIfNotInteger_1.errorIfNotInteger(offsetAndHowMany[i]);
+    errorIfNotInteger_1.errorIfNotInteger(info.offset);
+    errorIfNotInteger_1.errorIfNotInteger(info.howMany);
     var index = array_get_indexes_1.getFirstIndexOf(info.value, array);
-    return ifIndexNotNegative_getActionResult_1.ifIndexNotNegative_getActionResult(index, function () {
-        index += info.offset;
-        errorIfIndexNotValidAfterOffsetWasAdded_1.errorIfIndexNotValidAfterOffsetWasAdded(index, array);
-        return array_get_adjacent_at_1.getAdjacentAt(index, info.howMany, array);
-    });
+    error_if_index_is_negative_1.errorIfIndexIsNegative(index);
+    index += info.offset;
+    error_if_index_not_valid_after_offset_was_added_1.errorIfIndexNotValidAfterOffsetWasAdded(index, array.length);
+    return array_get_adjacent_at_1.getAdjacentAt(index, info.howMany, array);
 }
 exports.getAdjacentToValue = getAdjacentToValue;
