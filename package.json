@@ -1,6 +1,6 @@
 {
   "name": "@writetome51/array-get-adjacent-to-value",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Returns array of adjacent items from passed array, starting with, or close to, the passed value",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
