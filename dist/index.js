@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var errorIfNotInteger_1 = require("basic-data-handling/errorIfNotInteger");
+var error_if_not_integer_1 = require("error-if-not-integer");
 var error_if_index_is_negative_1 = require("error-if-index-is-negative");
 var error_if_index_not_valid_after_offset_was_added_1 = require("error-if-index-not-valid-after-offset-was-added");
 var array_get_adjacent_at_1 = require("@writetome51/array-get-adjacent-at");
@@ -15,8 +15,7 @@ var array_get_indexes_1 = require("@writetome51/array-get-indexes");
 // result will be [7, 9, 11] .
 // If offset was 2, for example, result would be [11, 13, 15]
 function getAdjacentToValue(info, array) {
-    errorIfNotInteger_1.errorIfNotInteger(info.offset);
-    errorIfNotInteger_1.errorIfNotInteger(info.howMany);
+    error_if_not_integer_1.errorIfNotInteger(info.offset);
     var index = array_get_indexes_1.getFirstIndexOf(info.value, array);
     error_if_index_is_negative_1.errorIfIndexIsNegative(index);
     index += info.offset;

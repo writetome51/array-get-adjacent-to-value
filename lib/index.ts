@@ -1,10 +1,11 @@
-import { errorIfNotInteger } from 'basic-data-handling/errorIfNotInteger';
+import { errorIfNotInteger } from 'error-if-not-integer';
 import { errorIfIndexIsNegative } from 'error-if-index-is-negative';
 import { errorIfIndexNotValidAfterOffsetWasAdded }
 	from 'error-if-index-not-valid-after-offset-was-added';
 import { getAdjacentAt } from '@writetome51/array-get-adjacent-at';
 import { getFirstIndexOf } from '@writetome51/array-get-indexes';
-import { IAdjacentToValueInfo } from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
+import { IAdjacentToValueInfo }
+	from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
 
 
 // Returns array of adjacent items from passed array, starting with, or close to,
@@ -18,11 +19,11 @@ import { IAdjacentToValueInfo } from '@writetome51/adjacent-to-value-info-interf
 // If offset was 2, for example, result would be [11, 13, 15]
 
 export function getAdjacentToValue(info: IAdjacentToValueInfo, array): any[] {
-	errorIfNotInteger(info.offset);
-	errorIfNotInteger(info.howMany);
 
+	errorIfNotInteger(info.offset);
 	let index = getFirstIndexOf(info.value, array);
 	errorIfIndexIsNegative(index);
+
 	index += info.offset;
 	errorIfIndexNotValidAfterOffsetWasAdded(index, array.length);
 

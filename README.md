@@ -16,11 +16,10 @@ Note: the function only works with the first found instance of `value`.
 let array = [1,3,5,7,9,11,13,15,17];
 
 getAdjacentToValue({value: 7, offset: 0, howMany: 3},  array);
-    // --> [7, 9, 11]
+// --> [7, 9, 11]
 
 getAdjacentToValue({value: 7, offset: 2, howMany: 3},  array);
-    // --> [11, 13, 15]
-
+// --> [11, 13, 15]
 
 array = [1, 3, ['hello','goodbye'], 15, 17];
 
@@ -28,7 +27,7 @@ getAdjacentToValue(
     {value: ['hello','goodbye'], offset: -1, howMany: 2},  
     array
 );
-    // --> [ 3, ['hello','goodbye'] ]
+// --> [ 3, ['hello','goodbye'] ]
 ```
 
 ### Installation
